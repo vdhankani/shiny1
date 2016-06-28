@@ -13,6 +13,9 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from oauth2client.client import GoogleCredentials
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np 
 
@@ -74,8 +77,9 @@ if __name__ == '__main__':
     dataToPlot = dataToPlot.pivot_table(index='Feature',columns='SampleBarcode',values='Values',aggfunc=np.mean)	
     	 
     #data range? normalization?
-    ax=sns.clustermap(dataToPlot,xticklabels=False,yticklabels=False,robust=True)
-    print ax
+    ax = sns.clustermap(dataToPlot,xticklabels=False,yticklabels=False,robust=True)
+    ax.savefig('test.png')
+    #print ax
     print ax.dendrogram_row.reordered_ind
     print ax.dendrogram_col.reordered_ind 
-    sns.plt.show() 	
+    #sns.plt.show() 	
