@@ -1,2 +1,2 @@
-# shiny1
+# shinyApps
 Sharing a shiny app through github.
